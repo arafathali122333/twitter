@@ -7,17 +7,18 @@ const router = express. Router ();
 
 var twitter = require('ntwitter'); 
 var twit = new twitter({
-consumer_key: 'qasPL7uYFGH8ovXR6bYTTeHsA',
-consumer_secret: 'fVsVgPFDqALbuBp8YZPW32TEiUTuQQC4OG9bm5Zm2AcUh3IjZR',
-access_token_key: '1580894099334275072-i7cdarUgUBvkOF7o6qGyTtmXj00Yu1',
-access_token_secret: 'AcWGRXGglxRre2iSjQRAt7DajgOPDXDtUZQS6ANAzLJlM'
+consumer_key: 'WHKtKzM1lNlWxlRiXdQOQzyXM',
+consumer_secret: 'PCbElfbVxZi4EBmeeC1DoXb0hUXt0LaoY1Sw9kyOPpnRgQM0Es',
+access_token_key: '1580894099334275072-9TRkknQFixHadfV2OT6QXuNRssNEQi',
+access_token_secret: 'kwXwdOrMeodqgSDR4upFBAOE3MPS4ISnzTT9kxgkDkTOM'
 });
 
 router.get('/', (req, res) => {
-    twit.updateStatus(req.query.data + twitter.VERSION, function (err, data) {
-        res.json(data);
+    twit.updateStatus(req.query.data, function (err, response) {
+        res.json(response);
      });
 });
+9000
 
 app.use('/.netlify/functions/api', router);
 module.exports.handler = serverless (app);
